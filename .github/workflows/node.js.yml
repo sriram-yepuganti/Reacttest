@@ -27,13 +27,16 @@ jobs:
        with:
           node-version: 18.x
      - name: Install dependencies
-       run: npm install    
+       run: npm install
+       working-directory: 'reacttest'
      - name: Test
        run: npm test
+       working-directory: 'reacttest'
        env:
         CI: true
      - name: Generate build
        run: npm run build
+       working-directory: 'reacttest'
 # Share artifact inside workflow
      - name: Share artifact inside workflow
        uses: actions/upload-artifact@v1
